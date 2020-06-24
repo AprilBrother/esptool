@@ -217,9 +217,9 @@ class ESPLoader(object):
     ROM_INVALID_RECV_MSG = 0x05   # response if an invalid message is received
 
     # Maximum block sized for RAM and Flash writes, respectively.
-    ESP_RAM_BLOCK   = 0x1800
+    ESP_RAM_BLOCK   = 0x100
 
-    FLASH_WRITE_SIZE = 0x400
+    FLASH_WRITE_SIZE = 0x100
 
     # Default baudrate. The ROM auto-bauds, so we can use more or less whatever we want.
     ESP_ROM_BAUD    = 115200
@@ -1647,7 +1647,7 @@ class ESP32S2ROM(ESP32ROM):
 class ESP32StubLoader(ESP32ROM):
     """ Access class for ESP32 stub loader, runs on top of ROM.
     """
-    FLASH_WRITE_SIZE = 0x4000  # matches MAX_WRITE_BLOCK in stub_loader.c
+    FLASH_WRITE_SIZE = 0x100  # matches MAX_WRITE_BLOCK in stub_loader.c
     STATUS_BYTES_LENGTH = 2  # same as ESP8266, different to ESP32 ROM
     IS_STUB = True
 
